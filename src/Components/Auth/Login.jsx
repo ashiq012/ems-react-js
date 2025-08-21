@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../../Context/AuthProvider';
 
 function Login({handleLogin}) {
     const [email,setEmail] = useState();
@@ -9,6 +10,7 @@ function Login({handleLogin}) {
         setEmail("");
         setPassword("");    
     }
+
   return (
     <div className='login-container h-screen flex items-center justify-center w-screen bg-black text-white'>
         <div className='border-1 pb-2 border-green-500 rounded-2xl p-10 shadow-xl '>    
