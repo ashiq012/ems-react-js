@@ -6,7 +6,7 @@ function EmployeeDashboard({loggedInUserData}) {
   return (
     <div className='h-screen bg-[#1c1c1c] p-15'><Header loggedInUserData = {loggedInUserData}/>
     <TaskListNumbere loggedInUserData = {loggedInUserData}/>
-    <TaskList/>
+    <TaskList loggedInUserData= {loggedInUserData}/>
     </div>
   )
 }

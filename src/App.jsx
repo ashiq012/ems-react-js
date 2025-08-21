@@ -3,20 +3,19 @@ import Login from './Components/Auth/Login';
 import EmployeeDashboard from './Components/Dashboard/EmployeeDashboard';
 import AdminDashboard from './Components/Dashboard/AdminDashboard';
 import { AuthContext } from './Context/AuthProvider';
+import { setLocalStorage } from './utils/LocalStorage';
 function App() {
   const data = useContext(AuthContext);
-  const [loggedInUserData , setloggedInUserData] = useState();
+  const [loggedInUserData , setloggedInUserData] = useState(null);
   const [user , setuser] = useState(null);
-  
-  // useEffect(()=>{
-  //  if(data){
-  //   const role = localStorage.getItem('loggedInUser');
-  //   if(role){
-  //     const loggedInUser = JSON.parse(role)
-  //     console.log(loggedInUser.role)
-  //     setuser(loggedInUser.role);
-  //   }}
-  // })
+  useEffect(()=>{
+    let activeLogin = localStorage.getItem('loggedInUser')
+    if(activeLogin){
+      const userData = JSON.parse(activeLogin);
+      setuser(userData.role);
+      setloggedInUserData(userData.data)
+    }
+  },[])
   const handleLogin = (email,password) => {
     if(email == 'admin@example.com' && password == "123"){
       setuser('admin')
@@ -27,7 +26,7 @@ function App() {
       if(emp){
       setuser('employee')
       setloggedInUserData(emp)
-      localStorage.setItem('loggedInUser',JSON.stringify({role:"employee"}))
+      localStorage.setItem('loggedInUser',JSON.stringify({role:"employee",data : emp}))
       }
     }
     else{
