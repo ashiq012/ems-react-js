@@ -1,9 +1,9 @@
 
-function Header() {
+function Header(props) {
   
   const handleLogin = () => {
     localStorage.setItem('loggedInUser','');
-    window.location.reload();
+    props.changeUser('')
   }
   return (
     <div className='flex justify-between items-end '>

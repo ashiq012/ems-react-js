@@ -2,13 +2,18 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../Context/AuthProvider';
 
 function CreateTask() {
+    const [assignTo,setassignTo] = useState('');
     const data = useContext(AuthContext);
     const [formData , setformData] = useState({
         taskTitle : "",
         date : "",
-        assignTo : "",
         category : "",
-        description:""
+        description:"",
+        active:false,
+        newTask:true,
+        complete:false,
+        failed:false
+        
     });
 
     const [showEmployeeList, setShowEmployeeList] = useState(false); // ✅ new state
@@ -17,20 +22,34 @@ function CreateTask() {
         const {name , value} = e.target;
         setformData(prev => ({
             ...prev,
-            [name]: value
+            [name]: value,
+        active:false,
+        newTask:true,
+        complete:false,
+        failed:false 
         }));
     };
 
     const handleSubmit = (e) =>{
+        const data = JSON.parse(localStorage.getItem('employee'));
         e.preventDefault();
-        alert("Task created.");
-        console.log(formData);
+        setformData(formData);
+        data.forEach((e)=>{
+            if(e.firstName === assignTo){
+                e.tasks.push(formData)
+                e.taskCounts.newTask++;
+            }
+        })
+         localStorage.setItem('employee',JSON.stringify(data))
         setformData({
             taskTitle: "",
             date: "",
-            assignTo: "",
             category: "",
-            description: ""
+            description: "",
+            active:false,
+            newTask:true,
+            complete:false,
+            failed:false
         });
     };
 
@@ -73,8 +92,10 @@ function CreateTask() {
                         <input 
                             type="text"
                             name='assignTo'
-                            onChange={handleChange}
-                            value={formData.assignTo}
+                            onChange={(e) => {
+                                setassignTo(e.target.value)
+                            }}
+                            value={assignTo}
                             className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400' 
                             placeholder='employee name' 
                         />
@@ -96,7 +117,7 @@ function CreateTask() {
                                         key={index}
                                         className="cursor-pointer hover:bg-green-700  rounded"
                                         onClick={() => {
-                                            setformData(prev => ({ ...prev, assignTo: e.firstName }));
+                                            setassignTo(e.firstName);
                                             setShowEmployeeList(false); // close after selecting
                                         }}
                                     >
