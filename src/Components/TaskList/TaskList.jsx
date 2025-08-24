@@ -6,20 +6,22 @@ import CompleteTask from './CompleteTask'
 
 function TaskList({loggedInUserData}) {
   return (
-    <div id="TaskList" className=' h-[55%] justify-start items-center mt-10 gap-6 flex flex-nowrap overflow-x-auto '>
+    <div id="TaskList" className=' h-[50%] justify-start items-center
+    mt-10 gap-4 flex flex-wrap overflow-x-auto
+    '>
       {
-      loggedInUserData.tasks.map((e) => {
+      loggedInUserData.tasks.map((e,index) => {
         if(e.active){
-          return <AcceptTask loggedInUserData ={e}/>
+          return <AcceptTask key={index} loggedInUserData ={e}/>
         }
         else if(e.newTask){
-          return <NewTask loggedInUserData ={e}/>
+          return <NewTask  key={index} loggedInUserData ={e}/>
         }
         else if(e.completed){
-          return <CompleteTask loggedInUserData ={e}/>
+          return <CompleteTask  key={index} loggedInUserData ={e}/>
         }
         else if(e.failed){
-          return <FailedTask loggedInUserData ={e}/>
+          return <FailedTask  key={index} loggedInUserData ={e}/>
         } 
       })
       }

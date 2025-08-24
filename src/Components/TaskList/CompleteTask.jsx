@@ -2,15 +2,15 @@ import React from 'react'
 
 function CompleteTask({loggedInUserData}) {
   return (
-<div className='flex-shrink-0 h-full w-[350px] p-5 bg-green-400 rounded-xl'>
+ <div className='p-5 sm:flex-shrink-0 h-full w-[350px] sm:p-5 bg-green-400 rounded-xl'>
           <div className='flex justify-between items-center'>
-            <h3 className='bg-red-600 py-1 px-3 rounded-xl text-sm'>High</h3>
-            <h2>{loggedInUserData.taskDate}</h2>
+            <h3 className='bg-red-600 px-5 sm:py-1 sm:px-3 rounded-xl text-sm'>High</h3>
+            <h2 className='text-sm sm:xl'>{loggedInUserData.taskDate}</h2>
           </div>
-          <h2 className='text-3xl font-semibold mt-15 '>{loggedInUserData.taskTitle}</h2>
+          <h2 className='text-3xl font-semibold sm:mt-15 mt-5'>{loggedInUserData.taskTitle}</h2>
           <p className='text-sm mt-2'>{loggedInUserData.taskDescription}</p>
-          <div className='flex justify-center items-center mt-25'>
-            <button className='bg-green-500 py-1 px-2 text-md font-bold rounded'>Completed</button>
+          <div className='flex justify-between mt-20  sm:mt-10 items-center '>
+            <button className='bg-green-600 py-1 px-2 sm:text-md text-sm font-bold rounded'>completed</button>
           </div>
         </div>
       )

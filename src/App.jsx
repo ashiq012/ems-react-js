@@ -3,9 +3,8 @@ import Login from './Components/Auth/Login';
 import EmployeeDashboard from './Components/Dashboard/EmployeeDashboard';
 import AdminDashboard from './Components/Dashboard/AdminDashboard';
 import { AuthContext } from './Context/AuthProvider';
-import { setLocalStorage } from './utils/LocalStorage';
 function App() {
-  const [userData,setUserData] = useContext(AuthContext)
+  const [userData] = useContext(AuthContext)
   const [loggedInUserData , setloggedInUserData] = useState(null);
   const [user , setuser] = useState(null);
   useEffect(()=>{
