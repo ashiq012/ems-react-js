@@ -3,7 +3,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 function CreateTask() {
     const [assignTo,setassignTo] = useState('');
-    const data = useContext(AuthContext);
+    const [userData,setUserData] = useContext(AuthContext)
     const [formData , setformData] = useState({
         taskTitle : "",
         date : "",
@@ -31,8 +31,9 @@ function CreateTask() {
     };
 
     const handleSubmit = (e) =>{
-        const data = JSON.parse(localStorage.getItem('employee'));
         e.preventDefault();
+        const data = userData;
+        console.log(data)
         setformData(formData);
         data.forEach((e)=>{
             if(e.firstName === assignTo){
@@ -40,7 +41,7 @@ function CreateTask() {
                 e.taskCounts.newTask++;
             }
         })
-         localStorage.setItem('employee',JSON.stringify(data))
+        setUserData(data)
         setformData({
             taskTitle: "",
             date: "",
@@ -112,7 +113,7 @@ function CreateTask() {
                         {/* Conditional Employee List */}
                         {showEmployeeList && (
                             <div className='text-sm font-semibold border-2 w-44 px-3 py-1 mt-1 bg-green-800 rounded'>
-                                {data.employee.map((e,index) => (
+                                {userData.map((e,index) => (
                                     <li
                                         key={index}
                                         className="cursor-pointer hover:bg-green-700  rounded"

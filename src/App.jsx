@@ -5,8 +5,7 @@ import AdminDashboard from './Components/Dashboard/AdminDashboard';
 import { AuthContext } from './Context/AuthProvider';
 import { setLocalStorage } from './utils/LocalStorage';
 function App() {
-  const data = localStorage.getItem('employee');
-  const storedData = JSON.parse(data)
+  const [userData,setUserData] = useContext(AuthContext)
   const [loggedInUserData , setloggedInUserData] = useState(null);
   const [user , setuser] = useState(null);
   useEffect(()=>{
@@ -23,8 +22,8 @@ function App() {
       setuser('admin')
       localStorage.setItem('loggedInUser',JSON.stringify({role:"admin"}))  
     }
-    else if(storedData){
-      const emp = storedData.employee.find((e,key) => email == e.email && password == e.password) ;
+    else if(userData){
+      const emp = userData.find((e,key) => email == e.email && password == e.password) ;
       if(emp){
       setuser('employee')
       setloggedInUserData(emp)
