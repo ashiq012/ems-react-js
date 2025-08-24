@@ -9,7 +9,7 @@ function FailedTask({loggedInUserData}) {
           </div>
           <h2 className='text-3xl font-semibold sm:mt-15 mt-5'>{loggedInUserData.taskTitle}</h2>
           <p className='text-sm mt-2'>{loggedInUserData.taskDescription}</p>
-          <div className='flex justify-between mt-20  sm:mt-10 items-center '>
+          <div className='flex justify-between mt-10  md:mt-10 items-center'>
             <button className='bg-red-500 py-1 px-2 sm:text-md text-sm font-bold rounded'>failed</button>
           </div>
         </div>
