@@ -9,8 +9,8 @@ It uses **React Context + LocalStorage** for authentication and data persistence
 
 ## 🛠️ Tech Stack
 - **Frontend:** React (Hooks + Context API)
-- **Styling:** CSS / Tailwind / Bootstrap (based on your project)
-- **Storage:** LocalStorage (for login & task data persistence)
+- **Styling:** CSS / Tailwind 
+- **Storage:** LocalStorage & context Api (for login & task data persistence)
 
 ---
 
