@@ -44,53 +44,9 @@ Predefined employees stored in AuthContext (persisted with LocalStorage)
 Email : e@e.com
 Password : 123
 
-## 📂 Project Structure
-employee-task-management/
-│── public/
-│   └── index.html
-│
-│── src/
-│   ├── Components/
-│   │   ├── Auth/
-│   │   │   └── Login.jsx
-│   │   ├── Dashboard/
-│   │   │   ├── AdminDashboard.jsx
-│   │   │   └── EmployeeDashboard.jsx
-│   │   ├── TaskList/
-│   │   │   ├── AcceptTask.jsx
-│   │   │   ├── CompleteTask.jsx
-│   │   │   ├── FailedTask.jsx
-│   │   │   ├── NewTask.jsx
-│   │   │   └── TaskList.jsx
-│   │   └── Others/
-│   │       ├── AllTask.jsx
-│   │       ├── CreateTask.jsx
-│   │       ├── Header.jsx
-│   │       └── TaskListNumbers.jsx
-│   │
-│   ├── Context/
-│   │   └── AuthProvider.jsx
-│   │
-│   ├── assets/
-│   │   └── react.svg
-│   │
-│   ├── utils/
-│   │   └── LocalStorage.jsx
-│   │
-│   ├── App.js
-│   ├── index.js
-│   └── main.js
-│
-│── .gitignore
-│── README.md
-│── package.json
-│── package-lock.json
-│── vite.config.js
-README.md
+##🖼️ Screenshots
+##🔐 Login Page
 
-🖼️ Screenshots
-🔐 Login Page
+##🖥️ Admin Dashboard
 
-🖥️ Admin Dashboard
-
-👨‍💻 Employee Dashboard
+##👨‍💻 Employee Dashboard
